@@ -1,28 +1,23 @@
 name: Pylint
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11
-
+        python-version: "3.10"
     - name: Install dependencies
+      run: pip install pylint
+    - name: Run pylint
       run: |
-        python -m pip install --upgrade pip
-        pip install -r API/requirements.txt
-
-    - name: Run Pylint
-      run: |
-        pylint API/apps/cuentas_usuarios/models.py
+        pylint API/apps/cuentas_usuarios/**/*.py --exit-zero
+      id: pylint
+    - name: Display pylint results
+      uses: alaric-sexy/actions-pylint@v1
+      with:
+        report-path: pylint_result.json
