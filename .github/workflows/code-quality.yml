@@ -25,9 +25,9 @@ jobs:
 
     - name: Install SonarScanner
       run: |
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9BFAB0AA
-        echo "deb http://repos.sonarsource.com/sonarqube-scanner-cli/deb/ stable main" | sudo tee -a /etc/apt/sources.list
-        sudo apt-get update && sudo apt-get install -y sonar-scanner
+        curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip -o sonar-scanner-cli.zip
+        unzip sonar-scanner-cli.zip
+        export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
 
     - name: Run SonarQube analysis
       run: |
