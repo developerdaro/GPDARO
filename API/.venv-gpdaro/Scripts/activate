@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="R:\Programacion\Proyectos\GestionPersonal - GPDARO\.venv-gpdaro"
+VIRTUAL_ENV="R:\Programacion\Proyectos\GestionPersonal - GPDARO\API\.venv-gpdaro"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
