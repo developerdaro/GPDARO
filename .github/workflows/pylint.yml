@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11.2"]
+        python-version: ["3.8", "3.11.2"]
 
     steps:
       - name: Checkout code
@@ -21,12 +21,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pylint
 
+      - name: List files
+        run: ls -R
+
       - name: Run pylint
         run: |
-          pylint API/apps/cuentas_usuarios/models.py
+          pylint API/apps/cuentas_usuarios/**/*.py
