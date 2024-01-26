@@ -3,32 +3,26 @@ name: Pylint
 on:
   push:
     branches:
-      - main  # Reemplaza 'main' con el nombre de tu rama principal
+      - master
 
 jobs:
-  pylint:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.11.2"]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pylint
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r API/requirements.txt
 
-      - name: List files
-        run: ls -R
-
-      - name: Run pylint
-        run: |
-          pylint API/apps/cuentas_usuarios/**/*.py
+    - name: Run Pylint
+      run: |
+        pylint API/apps/cuentas_usuarios/models.py
