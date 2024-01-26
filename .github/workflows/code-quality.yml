@@ -27,7 +27,7 @@ jobs:
       run: |
         curl -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip -o sonar-scanner-cli.zip
         unzip sonar-scanner-cli.zip
-        export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
+        export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-li    nux/bin
 
     - name: Run SonarQube analysis
       run: |
