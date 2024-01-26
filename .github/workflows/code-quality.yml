@@ -20,9 +20,10 @@ jobs:
 
     - name: Install Dependencies
       run: |
+        cd path/to/your/django/project
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-      working-directory: path/to/your/django/project
+     working-directory: ${{ github.workspace }}
 
     - name: Run Migrations
       run: |
