@@ -18,6 +18,7 @@ jobs:
       with:
         python-version: '3.x'
 
+        
     - name: Install Dependencies
       run: |
         cd path/to/your/django/project
