@@ -2,7 +2,7 @@ asgiref==3.7.2
 astroid==3.0.2
 colorama==0.4.6
 dill==0.3.7
-Django==5.0.1
+Django==4.2.9
 isort==5.13.2
 mccabe==0.7.0
 platformdirs==4.1.0
