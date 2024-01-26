@@ -15,9 +15,9 @@
 
 ## Tecnologías
 
-MySQL
-Django Rest Framework (Python)
-Angular (TypeScript)
+- MySQL
+- Django Rest Framework (Python)
+- Angular (TypeScript)
   
 
 ### Django Rest Framework
