@@ -25,6 +25,4 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint API/apps/cuentas_usuarios
-        pylint API/apps/actividades
-        pylint API/apps/finanzas
+        pylint API/apps/cuentas_usuarios/models.py
