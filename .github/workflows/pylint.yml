@@ -26,5 +26,25 @@ jobs:
     - name: Run Pylint
       run: |
         pylint --output-format=parseable API/apps/cuentas_usuarios/models.py
-        # pylint --output-format=parseable API/apps/actividades/**/*.py
-        # pylint --output-format=parseable API/apps/finanzas/**/*.py
+
+    - name: Add comments to Pull Request
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const github = require('@actions/github');
+
+          const token = process.env.GITHUB_TOKEN;
+          const octokit = github.getOctokit(token);
+
+          const prNumber = fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8');
+          const body = 'Your pylint score is: ...';  // Reemplaza con tu puntuación o estadísticas
+
+          await octokit.issues.createComment({
+            owner: github.context.repo.owner,
+            repo: github.context.repo.repo,
+            issue_number: prNumber,
+            body: body
+          });
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
