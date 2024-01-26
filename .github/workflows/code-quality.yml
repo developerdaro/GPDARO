@@ -1,0 +1,31 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Build and Analyze with SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ORGANIZATION: 'developerdaro' # Reemplaza con tu organización en SonarCloud
+          SONAR_PROJECT_KEY: 'GPDARO'   # Reemplaza con la clave de tu proyecto en SonarCloud
+          SONAR_PROJECT_NAME: 'GPDARO'            # Reemplaza con el nombre de tu proyecto en SonarCloud
+        run: |
+          ./gradlew build
+          ./gradlew sonarqube
+
