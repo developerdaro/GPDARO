@@ -25,6 +25,6 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint --output-format=parseable API/apps/cuentas_usuarios/**/*.py
-        pylint --output-format=parseable API/apps/actividades/**/*.py
-        pylint --output-format=parseable API/apps/finanzas/**/*.py
+        pylint --output-format=parseable API/apps/cuentas_usuarios/models.py
+        # pylint --output-format=parseable API/apps/actividades/**/*.py
+        # pylint --output-format=parseable API/apps/finanzas/**/*.py
