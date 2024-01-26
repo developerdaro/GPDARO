@@ -25,6 +25,6 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint API/gpdaro_project/apps/cuentas_usuarios/**/*.py
-        pylint API/gpdaro_project/apps/actividades/**/*.py
-        pylint API/gpdaro_project/apps/finanzas/**/*.py
+        pylint API/gpdaro_project/apps/cuentas_usuarios
+        pylint API/gpdaro_project/apps/actividades
+        pylint API/gpdaro_project/apps/finanzas
