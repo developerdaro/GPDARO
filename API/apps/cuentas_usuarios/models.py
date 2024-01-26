@@ -122,7 +122,7 @@ class Rol(DatosGenericos):
         db_table = "cuentas_usuario_rol"
 
     def __str__(self):
-        return self.nombre
+        return str(self.nombre)
 
 
 class Pais(DatosGenericos):
@@ -143,7 +143,7 @@ class Pais(DatosGenericos):
         db_table = "cuentas_usuario_pais"
 
     def __str__(self):
-        return self.nombre
+        return str(self.nombre)
 
 
 class Departamento(DatosGenericos):
@@ -153,7 +153,7 @@ class Departamento(DatosGenericos):
     nombre = models.CharField(verbose_name="Nombre", max_length=100)
 
     def __str__(self):
-        return self.nombre
+        return str(self.nombre)
 
     # pylint: disable=R0903
     class Meta:
@@ -178,7 +178,7 @@ class Municipio(DatosGenericos):
                                      null=True, blank=True)
 
     def __str__(self):
-        return self.nombre
+        return str(self.nombre)
 
     # pylint: disable=R0903
     class Meta:
@@ -211,7 +211,7 @@ class TipoIdentificacion(DatosGenericos):
 
     # pylint: disable=R0903
     def __str__(self):
-        return self.nombre
+        return str(self.nombre)
 
 
 class Usuario(AbstractBaseUser, DatosGenericos):
@@ -304,7 +304,7 @@ class Usuario(AbstractBaseUser, DatosGenericos):
         verbose_name_plural = "Usuarios"
         db_table = "cuentas_usuario_usuario"
     def __str__(self):
-        return self.correo
+        return str(self.correo)
 
     def full_name(self):
         """
