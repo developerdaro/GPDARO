@@ -42,25 +42,9 @@ jobs:
           unzip -q nRF5_SDK_15.3.0_59ac345.zip
         fi
 
-    # Runs a single command using the runners shell
-    - name: Compile project
-      run: build-wrapper-linux-x86-64 --out-dir bw-output make sonar
-
-    - name: Set up Ruby 2.7
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-
-    # Runs a single command using the runners shell
-    - name: Install Ceedling and GCovr
-      run: |
-        gem install ceedling
-        sudo pip install gcovr
-
     # Runs a set of commands using the runners shell
     - name: Run Sonar scanner
       run: |
-        make test_all_gcov
         export SONAR_SCANNER_OPTS="-server"
         sonar-scanner \
           -Dsonar.organization=developerdaro \
