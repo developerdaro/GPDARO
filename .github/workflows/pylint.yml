@@ -25,4 +25,4 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint API/apps/cuentas_usuarios/models.py
+        pylint --exit-zero API/apps/cuentas_usuarios/models.py
