@@ -22,9 +22,9 @@ jobs:
       - name: Build and Analyze with SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ORGANIZATION: 'developerdaro' # Reemplaza con tu organización en SonarCloud
-          SONAR_PROJECT_KEY: 'GPDARO'   # Reemplaza con la clave de tu proyecto en SonarCloud
-          SONAR_PROJECT_NAME: 'GPDARO'            # Reemplaza con el nombre de tu proyecto en SonarCloud
+          SONAR_ORGANIZATION: 'developerdaro'
+          SONAR_PROJECT_KEY: 'GPDARO'   
+          SONAR_PROJECT_NAME: 'GPDARO'       
         run: |
           ./gradlew build
           ./gradlew sonarqube
